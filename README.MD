@@ -10,7 +10,7 @@ A multivariate Normal distribution is fitted to the reconstruction errors by Max
 The normality score at a given time step is given by the likelihood of the reconstruction errors at that time step under the fitted multivariate Normal distribution.
 The lower the likelihood at a given a time step, the more likely the time step is to be an anomaly.
 
-<img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-ad-diagram.png style="width:70%;margin-top:50px;margin-bottom:50px"/>
+<img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-ad-diagram.png style="width:80%;margin-top:50px;margin-bottom:50px"/>
 
 *LSTM-AD architecture (source: [ISBN 978-287587014-8](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf))*
 
