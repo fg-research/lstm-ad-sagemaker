@@ -8,7 +8,7 @@ The training and inference Docker images were built by extending the PyTorch 2.0
 The LSTM-AD model reconstructs the time series with a multivariate stacked LSTM model.
 The model parameters are learned on normal data (i.e. on data without anomalies) by minimizing the Mean Squared Error (MSE) between the actual time series and the reconstructed time series.
 
-A multivariate Normal distribution is fitted to the reconstruction errors by Maximum Likelihood Estimation.
+A multivariate Normal distribution is fitted to the reconstruction errors by Maximum Likelihood Estimation (MLE).
 The normality score at a given time step is given by the likelihood of the reconstruction errors at that time step under the fitted multivariate Normal distribution.
 The lower the likelihood at a given a time step, the more likely the time step is to be an anomaly.
 
