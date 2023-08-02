@@ -35,11 +35,10 @@ The lower the likelihood at a given a time step, the more likely the time step i
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
 However, the algorithm defines the normality scores using the Normal log-likelihood instead of the likelihood.
-Note that the time series are scaled internally by the algorithm, there is no need to scale the time series in advance.
 
 ### Training
-The training algorithm has two input data channels: `"training"` and `"validation"`. 
-The `"training"` channel is mandatory, while the `"validation"` channel is optional.
+The training algorithm has two input data channels: `training` and `validation`. 
+The `training` channel is mandatory, while the `validation` channel is optional.
 
 The training and validation datasets should be provided as CSV files and should only contain normal data (i.e. without anomalies).
 Each column of the CSV file represents a time series, while each row represents a time step.
@@ -77,7 +76,7 @@ The inference algorithm takes as input a CSV file containing the time series.
 Each column of the CSV file represents a time series, while each row represents a time step.
 The CSV file should not contain any index column or column headers.
 All the time series should have the same length and should not contain missing values.
-See the sample input file `test_data.csv` in the `data/inference/input` folder.
+See the sample input file `test.csv` in the `data/inference/input` folder.
 
 The inference algorithm outputs the normality scores and the reconstructions. 
 The normality scores are included in the first column, while the reconstructions are included in the subsequent columns. 
