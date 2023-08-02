@@ -23,13 +23,19 @@ The lower the likelihood at a given a time step, the more likely the time step i
 - The LSTM-AD model views the multivariate time series as different measurements on the same system. An anomaly is intended as an abnormal behavior of the entire system, not of a single individual measurement. As a result, the LSTM-AD model outputs only one normality score for each time step, representing the likelihood that the overall system is in a normal state at that time step. The LSTM-AD model can also be applied to a univariate time series (i.e. to a single time series). Consider fitting the LSTM-AD model to each individual time series if the time series are not similar to each other and are not related, or if you need to identify the anomalies separately in each time series.  
 
 
-- The LSTM-AD model reconstructs the time series sequence by sequence. Each sequence is used as input for reconstructing the next sequence. The algorithm uses non-overlapping sequences, whose length can be defined through the `"sequence-length"` hyperparameter. The sequence length (also referred to as window size or number of time steps) should be chosen such that enough sequences are available for training. For instance, if the length of the time series is 10000, consider choosing a sequence length not greater than 100. The LSTM-AD model does not return any output for the first sequence, as there is no previous sequence to use as input.
+- The LSTM-AD model reconstructs the time series sequence by sequence. Each sequence is used as input for reconstructing the next sequence. The algorithm uses non-overlapping sequences, whose length can be defined through the `sequence-length` hyperparameter. The sequence length (also referred to as window size or number of time steps) should be chosen such that enough sequences are available for training. For instance, if the length of the time series is 10000, consider choosing a sequence length not greater than 100. The LSTM-AD model does not return any output for the first sequence, as there is no previous sequence to use as input.
+
+
+- To take into account the fact that the length of the time series might not be divisible by the sequence length, and that therefore the last sequence can be shorter than the other sequences, the inference algorithm uses a batch size of one. Even though the inference algorithm also runs on multi-GPU instances, they are not recommended, given that it is not possible to split the batches across multiple GPUs in this case.
+
+
 ### Model Resources
 - **Paper:** [Long Short Term Memory Networks for Anomaly Detection in Time Series](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf).
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
 However, the algorithm defines the normality scores using the Normal log-likelihood instead of the likelihood.
+Note that the time series are scaled internally by the algorithm, there is no need to scale the time series in advance.
 
 ### Training
 The training algorithm has two input data channels: `"training"` and `"validation"`. 
@@ -38,7 +44,7 @@ The `"training"` channel is mandatory, while the `"validation"` channel is optio
 The training and validation datasets should be provided as CSV files and should only contain normal data (i.e. without anomalies).
 Each column of the CSV file represents a time series, while each row represents a time step.
 All the time series should have the same length and should not contain missing values.
-The CSV file should not contain any index column or column headers. 
+The CSV file should not contain any index column or column headers.
 
 See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
 See `notebook.ipynb` for an example of how to launch a training job.
