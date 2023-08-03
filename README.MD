@@ -54,8 +54,8 @@ The algorithm does not support multi-node (or distributed) training across multi
 
 #### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
-- `num-layers`: `int`. The number of LSTM layers (default = 2).
 - `sequence-length`: `int`. The number of time steps processed by each LSTM layer (default = 50).
+- `num-layers`: `int`. The number of LSTM layers (default = 2).
 - `hidden-size`: `int`. The number of hidden units of each LSTM layer (default = 128).
 - `dropout`: `float`. The dropout rate applied after each LSTM layer (default = 0.1).
 - `lr`: `float`. The learning rate used for training (default = 0.001).
