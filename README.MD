@@ -32,6 +32,9 @@ However, the algorithm defines the normality scores using the Gaussian log-likel
 
 - The algorithm predicts the time series sequence by sequence. Each sequence is used as input for predicting the next sequence. The algorithm uses non-overlapping sequences, whose length can be defined through the `sequence-length` hyperparameter. The sequence length (also referred to as window size or number of time steps) should be chosen such that enough sequences are available for training. For instance, if the length of the time series is 10000, consider choosing a sequence length not greater than 100. The algorithm does not return any output for the first sequence, as there is no previous sequence to use as input.
 
+### Algorithm Resources
+- **Blog Post:** [Time Series Anomaly Detection with the LSTM-AD SageMaker Algorithm from AWS Marketplace](https://medium.com/@fg-research/time-series-anomaly-detection-with-the-lstm-ad-sagemaker-algorithm-from-aws-marketplace-1af1f9ad18a5?source=friends_link&sk=669bd9bd6f6abd57ad132e1bc89b52d7).
+
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
 The `training` channel is mandatory, while the `validation` channel is optional.
