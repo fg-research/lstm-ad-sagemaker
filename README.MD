@@ -29,7 +29,7 @@ The computed Gaussian likelihood is then used as a normality score: the lower th
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
-However, the algorithm defines the normality scores using the Normal log-likelihood instead of the likelihood.
+However, the algorithm defines the normality scores using the Gaussian log-likelihood instead of the likelihood.
 
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
