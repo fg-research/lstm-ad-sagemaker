@@ -88,4 +88,4 @@ See `notebook.ipynb` for an example of how to deploy the model to an endpoint, i
 See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
 
 ## References
-- P. Malhotra, L. Vig, G. Shroff and P. Agarwal, "Long Short Term Memory Networks for Anomaly Detection in Time Series," In *Esann*, vol. 2015, p. 89. 2015. [ISBN 978-287587014-8](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf)
+- P. Malhotra, L. Vig, G. Shroff and P. Agarwal, "Long Short Term Memory Networks for Anomaly Detection in Time Series," In *Esann*, vol. 2015, p. 89, 2015, [ISBN 978-287587014-8](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf).
