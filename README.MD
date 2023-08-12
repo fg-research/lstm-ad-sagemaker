@@ -16,7 +16,7 @@ The computed Gaussian likelihood is then used as a normality score: the lower th
 
 *LSTM-AD architecture (source: [ISBN 978-287587014-8](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf))*
 
-**Model Resources:** [[Paper]](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf).
+**Model Resources:** [[Paper]](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf)
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
