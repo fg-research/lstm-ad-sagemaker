@@ -29,7 +29,7 @@ However, the algorithm defines the normality scores using the Gaussian log-likel
 - The algorithm views the multivariate time series as different measurements on the same system. An anomaly is intended as an abnormal behavior of the entire system, not of a single individual measurement. As a result, the algorithm outputs only one normality score for each time step, representing the likelihood that the overall system is in a normal state at that time step. The algorithm can also be applied to a univariate time series (i.e. to a single time series). Consider fitting the algorithm to each individual time series if the time series are not similar to each other and are not related, or if you need to identify the anomalies separately in each time series.  
 
 
-- The algorithm predicts the time series sequence by sequence. Each sequence is used as input for predicting the next sequence. The algorithm does not return any output for the first sequence, as there is no previous sequence to use as input.
+- The algorithm predicts the time series sequence by sequence. Each sequence is used as input for predicting the next sequence. The algorithm uses non-overlapping sequences, whose length can be defined through the `sequence-length` hyperparameter. The sequence length (also referred to as window size or number of time steps) should be chosen such that enough sequences are available for training. For instance, if the length of the time series is 10000, consider choosing a sequence length not greater than 100. The algorithm does not return any output for the first sequence, as there is no previous sequence to use as input.
 
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
