@@ -29,7 +29,7 @@ However, the algorithm defines the normality scores using the Gaussian log-likel
 - The algorithm views the multivariate time series as different measurements on the same system. An anomaly is intended as an abnormal behavior of the entire system, not of a single individual measurement. As a result, the algorithm outputs only one normality score for each time step, representing the likelihood that the overall system is in a normal state at that time step. The algorithm can also be applied to a univariate time series (i.e. to a single time series). Consider fitting the algorithm to each individual time series if the time series are not similar to each other and are not related, or if you need to identify the anomalies separately in each time series.  
 
 
-- The algorithm predicts the time series sequence by sequence. Each sequence is used as input for predicting the next sequence. The algorithm uses non-overlapping sequences, whose length can be defined through the `sequence-length` hyperparameter. The sequence length (also referred to as window size or number of time steps) should be chosen such that enough sequences are available for training. For instance, if the length of the time series is 10000, consider choosing a sequence length not greater than 100. The algorithm does not return any output for the first sequence, as there is no previous sequence to use as input.
+- The algorithm predicts the time series sequence by sequence. Each sequence is used as input for predicting the next sequence. The algorithm does not return any output for the first sequence, as there is no previous sequence to use as input.
 
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
@@ -49,13 +49,13 @@ The algorithm does not support multi-node (or distributed) training across multi
 
 #### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
-- `num-layers`: `int`. The number of LSTM layers (default = 2).
-- `sequence-length`: `int`. The number of time steps processed by each LSTM layer (default = 50).
-- `hidden-size`: `int`. The number of hidden units of each LSTM layer (default = 128).
-- `dropout`: `float`. The dropout rate applied after each LSTM layer (default = 0.1).
-- `lr`: `float`. The learning rate used for training (default = 0.001).
-- `batch-size`: `int`. The batch size used for training (default = 64).
-- `epochs`: `int`. The number of training epochs (default = 100).
+- `num-layers`: `int`. The number of LSTM layers.
+- `sequence-length`: `int`. The number of time steps processed by each LSTM layer.
+- `hidden-size`: `int`. The number of hidden units of each LSTM layer.
+- `dropout`: `float`. The dropout rate applied after each LSTM layer.
+- `lr`: `float`. The learning rate used for training.
+- `batch-size`: `int`. The batch size used for training.
+- `epochs`: `int`. The number of training epochs.
 
 #### Metrics
 The training algorithm logs the following metrics:
@@ -76,8 +76,6 @@ See the sample input file `test.csv` in the `data/inference/input` folder.
 The inference algorithm outputs the normality scores and the predicted values of the time series. 
 The normality scores are included in the first column, while the predicted values of the time series are included in the subsequent columns. 
 
-**Note:** The algorithm does not return any output for the first sequence, as there is no previous sequence to use as input.
-
 See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
 See `notebook.ipynb` for an example of how to launch a batch transform job.
 
@@ -86,6 +84,8 @@ The algorithm supports only real-time inference endpoints. The inference image i
 
 See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
+
+**Additional Resources:** [Blog Post](https://medium.com/@fg-research/time-series-anomaly-detection-with-the-lstm-ad-sagemaker-algorithm-from-aws-marketplace-1af1f9ad18a5?source=friends_link&sk=669bd9bd6f6abd57ad132e1bc89b52d7)
 
 ## References
 - P. Malhotra, L. Vig, G. Shroff and P. Agarwal, "Long Short Term Memory Networks for Anomaly Detection in Time Series," In *Esann*, vol. 2015, p. 89, 2015, [ISBN 978-287587014-8](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf).
