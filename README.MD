@@ -1,5 +1,5 @@
 # LSTM-AD SageMaker Algorithm
-The [Time Series Anomaly Detection (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-4pbvedtnnlphw) 
+The [Time Series Anomaly Detection (LSTM-AD) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-4pbvedtnnlphw) 
 performs time series anomaly detection with the Long Short-Term Memory Network for Anomaly Detection (LSTM-AD).
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
@@ -39,7 +39,7 @@ of the time series in the validation dataset and their predicted values generate
 An anomaly is intended as an abnormal behavior of the entire system, not of a single individual measurement. 
 As a result, the algorithm outputs only one normality score for each time step, representing the likelihood that the overall system is in a normal state at that time step. 
 The algorithm can also be applied to a univariate time series (i.e. to a single time series). 
-Consider fitting the algorithm to each individual time series if the time series are not similar to each other and are not related, 
+Consider fitting the model to each individual time series if the time series are not similar to each other and are not related, 
 or if you need to identify the anomalies separately in each time series.  
 
 ### Training
