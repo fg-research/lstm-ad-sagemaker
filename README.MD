@@ -91,9 +91,7 @@ See the sample input file `test.csv` in the `data/inference/input` folder.
 The inference algorithm outputs the normality scores and the predicted values of the time series. 
 The normality scores are included in the first column, while the predicted values of the time series are included in the subsequent columns. 
 
-**Note:**
-
-The model predicts the time series sequence by sequence. For instance, if the `context-length` is set equal to 200, and the `prediction-length` is set equal to 100, then the first 200 data points (from 1 to 200) are used as input to predict the next 100 data points (from 201 to 300). As a result, the algorithm does not return the normality scores and predicted values of the first 200 data points, which are set to missing in the output CSV file.
+**Note:** The model predicts the time series sequence by sequence. For instance, if the `context-length` is set equal to 200, and the `prediction-length` is set equal to 100, then the first 200 data points (from 1 to 200) are used as input to predict the next 100 data points (from 201 to 300). As a result, the algorithm does not return the normality scores and predicted values of the first 200 data points, which are set to missing in the output CSV file.
 
 See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
 See `notebook.ipynb` for an example of how to launch a batch transform job.
