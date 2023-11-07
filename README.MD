@@ -5,7 +5,6 @@ It implements both training and inference from CSV data and supports both CPU an
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
 
 ## Model Description
-### Model Architecture
 The LSTM-AD model predicts the time series with a multivariate stacked LSTM model. 
 The model parameters are learned on a training set containing only normal data (i.e. without anomalies) 
 by minimizing the mean squared error (MSE) between the actual and predicted values of the time series. 
