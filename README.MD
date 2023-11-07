@@ -102,7 +102,7 @@ The algorithm supports only real-time inference endpoints. The inference image i
 See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
 
-**Additional Resources:** [[Blog Post]](https://medium.com/@fg-research/time-series-anomaly-detection-with-the-lstm-ad-sagemaker-algorithm-from-aws-marketplace-1af1f9ad18a5?source=friends_link&sk=669bd9bd6f6abd57ad132e1bc89b52d7)
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-anomaly-detection-with-the-lstm-ad-sagemaker-algorithm-from-aws-marketplace-1af1f9ad18a5?source=friends_link&sk=669bd9bd6f6abd57ad132e1bc89b52d7)
 
 ## References
 - P. Malhotra, L. Vig, G. Shroff and P. Agarwal, "Long Short Term Memory Networks for Anomaly Detection in Time Series," In *Esann*, vol. 2015, p. 89, 2015, [ISBN 978-287587014-8](https://www.esann.org/sites/default/files/proceedings/legacy/es2015-56.pdf).
