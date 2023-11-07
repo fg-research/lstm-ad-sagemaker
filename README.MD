@@ -51,8 +51,8 @@ Each column of the CSV file represents a time series, while each row represents 
 All the time series should have the same length and should not contain missing values.
 The CSV file should not contain any index column or column headers.
 
-See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
-See `notebook.ipynb` for an example of how to launch a training job.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a training job.
+See also the sample input files [`train.csv`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/data/training/train.csv) and [`valid.csv`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/data/training/valid.csv).
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
@@ -79,28 +79,28 @@ If the validation channel is provided, the training algorithm also logs the foll
 - `valid_mse`: `float`. Validation mean squared error.
 - `valid_mae`: `float`. Validation mean absolute error.
 
-See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a hyperparameter tuning job.
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
 Each column of the CSV file represents a time series, while each row represents a time step.
 The CSV file should not contain any index column or column headers.
 All the time series should have the same length and should not contain missing values.
-See the sample input file `test.csv` in the `data/inference/input` folder.
+See the sample input file [`test.csv`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/data/inference/input/test.csv).
 
 The inference algorithm outputs the normality scores and the predicted values of the time series. 
 The normality scores are included in the first column, while the predicted values of the time series are included in the subsequent columns. 
 
 **Note:** The model predicts the time series sequence by sequence. For instance, if the `context-length` is set equal to 200, and the `prediction-length` is set equal to 100, then the first 200 data points (from 1 to 200) are used as input to predict the next 100 data points (from 201 to 300). As a result, the algorithm does not return the normality scores and predicted values of the first 200 data points, which are set to missing in the output CSV file.
 
-See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
-See `notebook.ipynb` for an example of how to launch a batch transform job.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a batch transform job.
+See also the sample output file [`batch_predictions.csv`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/data/inference/output/batch/batch_predictions.csv).
 
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
-See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
+See also the sample output file [`real_time_predictions.csv`](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/data/inference/output/real-time/real_time_predictions.csv).
 
 **Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/lstm-ad-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-anomaly-detection-with-the-lstm-ad-sagemaker-algorithm-from-aws-marketplace-1af1f9ad18a5?source=friends_link&sk=669bd9bd6f6abd57ad132e1bc89b52d7)
 
