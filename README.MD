@@ -3,6 +3,7 @@ The [Time Series Anomaly Detection (LSTM-AD) Algorithm from AWS Marketplace](htt
 performs time series anomaly detection with the Long Short-Term Memory Network for Anomaly Detection (LSTM-AD).
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.1.0 Python 3.10 SageMaker containers.
+The algorithm can be used for both univariate and multivariate time series.
 
 ## Model Description
 The LSTM-AD model predicts the time series with a multivariate stacked LSTM model. 
